@@ -16,27 +16,29 @@ StockSync is a full-stack inventory and order management app built with FastAPI,
 
 ```text
 .
-├── backend
-│   ├── app
-│   │   ├── database.py
-│   │   ├── main.py
-│   │   ├── models.py
-│   │   └── schemas.py
-│   ├── Dockerfile
-│   ├── main.py
-│   └── requirements.txt
-├── frontend
-│   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── api.js
-│   │   └── main.jsx
-│   ├── Dockerfile
-│   ├── nginx.conf
-│   ├── package.json
-│   └── vite.config.js
-├── docker-compose.yml
-└── .env.example
+|-- backend
+|   |-- app
+|   |   |-- database.py
+|   |   |-- main.py
+|   |   |-- models.py
+|   |   `-- schemas.py
+|   |-- Dockerfile
+|   |-- index.py
+|   |-- main.py
+|   `-- requirements.txt
+|-- frontend
+|   |-- src
+|   |   |-- App.css
+|   |   |-- App.jsx
+|   |   |-- api.js
+|   |   `-- main.jsx
+|   |-- Dockerfile
+|   |-- nginx.conf
+|   |-- package.json
+|   `-- vite.config.js
+|-- docker-compose.yml
+|-- render.yaml
+`-- .env.example
 ```
 
 ## Run With Docker
@@ -98,6 +100,7 @@ npm run dev
 ## Deployment Notes
 
 - Render backend: create a PostgreSQL database, deploy `backend` as the service root, and set `DATABASE_URL` to Render's internal database URL.
+- Vercel backend: deploy `backend` as a FastAPI project and connect a PostgreSQL provider with `DATABASE_URL`.
 - Vercel frontend: deploy `frontend` as the project root and set `VITE_API_URL` to the deployed backend URL.
 - Docker Hub backend image:
 
