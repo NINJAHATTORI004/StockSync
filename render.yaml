@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: stocksync-api
+    name: stocksync-api-anshmittal132
     runtime: docker
     rootDir: backend
     plan: free
