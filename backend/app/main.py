@@ -113,6 +113,16 @@ def health_check(db: Session = Depends(get_db)):
     return {"status": "ok"}
 
 
+@app.get("/")
+def api_root():
+    return {
+        "name": "StockSync Inventory and Order API",
+        "status": "ok",
+        "docs": "/docs",
+        "health": "/health",
+    }
+
+
 @app.post("/products", response_model=ProductRead, status_code=status.HTTP_201_CREATED)
 def create_product(product: ProductCreate, db: Session = Depends(get_db)):
     ensure_unique_sku(db, product.sku)
